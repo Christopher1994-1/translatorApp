@@ -1,7 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { StyleSheet, Text, View, Button, Easing, Animated, Image, SafeAreaView } from 'react-native';
+
+
+
+
 
 export default function App() {
+
   return (
     <View style={styles.container}>
 
@@ -14,7 +20,20 @@ export default function App() {
           <Text style={styles.second_div_letters}>Translate easy and fast into 100+ languages!</Text>
         </View>
 
-        
+
+          <View style={styles.flags_div}>
+            <Image
+              source={require('./images/uk.png')}
+              style={styles.image}/>
+
+              <Image
+              source={require('./images/jnjn.png')}
+              style={styles.image2} resizeMode="stretch" />
+
+            <Image
+              source={require('./images/german.png')}
+              style={styles.image3}/>
+          </View>
 
 
         <View style={styles.HomeButtonContainer}>
@@ -24,7 +43,8 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
   );
-}
+};
+
 
 const styles = StyleSheet.create({
   container: {
@@ -35,9 +55,9 @@ const styles = StyleSheet.create({
   },
 
   first_div: {
-    borderWidth: 2,
-    borderColor: 'black',
-    borderStyle: 'solid',
+    // borderWidth: 2,
+    // borderColor: 'black',
+    // borderStyle: 'solid',
     padding: 10,
   },
 
@@ -45,20 +65,22 @@ const styles = StyleSheet.create({
     fontSize: 50,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: 'white'
   },
 
 
   second_div: {
     marginTop: 20,
-    borderWidth: 2,
     marginBottom: 30,
-    borderColor: 'black',
-    borderStyle: 'solid',
+    width: 300,
     padding: 10,
   },
 
   second_div_letters: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 20,
   },
 
 
@@ -68,9 +90,31 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderStyle: 'solid',
     borderRadius: 10,
-    padding: 10,
+    padding: 15,
     backgroundColor: '#333',
-    width: "80%"
-  }
+    width: "80%",
+    marginTop: 50,
+  },
+
+
+
+  flags_div: {
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  image: {
+    width: 200,
+    height: 100,
+    marginBottom: 20
+  },
+  image2: {
+    width: 70,
+    height: 40,
+    marginBottom: 20
+  },
+  image3: {
+    width: 200,
+    height: 100,
+  },
 
 });
